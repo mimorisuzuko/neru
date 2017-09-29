@@ -1,0 +1,26 @@
+.base {
+	width: 96%;
+	margin-left: 2%;
+	margin-right: 2%;
+
+	time {
+		color: rgba(0, 0, 0, 0.4);
+		font-weight: 600;
+		display: block;
+	}
+
+	.weather {
+		font-size: 1.5rem;
+		font-weight: 600;
+
+		small {
+			font-size: 1rem;
+		}
+	}
+}
+
+.item {
+	text-align: center;
+	width: calc(96% / 5);
+	display: inline-block;
+}
