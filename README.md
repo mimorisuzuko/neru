@@ -1,11 +1,9 @@
 # Neru
 
-天気確認する君 at 1017
-
-![](ss.png)
+iPad at 1017
 
 ```zsh
 yarn
-node server.js
+yarn start
 open http://localhost:8000
 ```

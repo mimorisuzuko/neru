@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import 'whatwg-fetch';
 import './index.scss';
 
 const $main = document.querySelector('main');

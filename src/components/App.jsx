@@ -1,44 +1,13 @@
-import React, { Component } from 'react';
-import Weather from './Weather';
-import Forecast from './Forecast';
-import autobind from 'autobind-decorator';
-import 'whatwg-fetch';
-import './App.scss';
+import React from 'react';
+import Weather from './Weather/App';
+import Me from './Me/App';
+import SwipeableViews from 'react-swipeable-views';
 
-const { protocol, hostname } = location;
-const target = `${protocol}//${hostname}:8000/weather`;
-
-class App extends Component {
-	constructor() {
-		super();
-
-		this.state = {
-			weather: null,
-			forecast: null
-		};
-	}
-
-	componentDidMount() {
-		this.loop();
-	}
-
-	@autobind
-	loop() {
-		fetch(target).then((a) => a.json()).then(([weather, ...forecast]) => {
-			this.setState({ weather, forecast });
-		}).catch(console.error).then(() => setTimeout(this.loop, 60000));
-	}
-
-	render() {
-		const { state: { weather, forecast } } = this;
-
-		return (
-			<div styleName='base'>
-				<Weather weather={weather} />
-				<Forecast forecast={forecast} />
-			</div>
-		);
-	}
-}
+const App = () => (
+	<SwipeableViews style={{ height: '100%' }} containerStyle={{ height: '100%' }} slideStyle={{ height: '100%' }}>
+		<Weather />
+		<Me />
+	</SwipeableViews>
+);
 
 export default App;

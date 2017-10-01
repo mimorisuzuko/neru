@@ -4,6 +4,7 @@
   "description": "天気確認する君",
   "main": "docs/index.html",
   "scripts": {
+    "start": "node server.js",
     "webpack": "./node_modules/.bin/webpack --config webpack.config.babel.js",
     "build": "npm-run-all build:*",
     "build:pug": "./node_modules/.bin/pug --hierarchy -o docs/ src/",
@@ -45,6 +46,7 @@
     "moment": "^2.18.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-swipeable-views": "^0.12.8",
     "request": "^2.83.0",
     "whatwg-fetch": "^2.0.3"
   },
