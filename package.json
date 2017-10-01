@@ -39,9 +39,13 @@
   },
   "dependencies": {
     "autobind-decorator": "^2.1.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.1",
+    "jsdom": "^11.3.0",
     "moment": "^2.18.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "request": "^2.83.0",
     "whatwg-fetch": "^2.0.3"
   },
   "babel": {

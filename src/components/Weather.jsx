@@ -9,19 +9,15 @@ class Weather extends Component {
 			return null;
 		}
 
-		const { temp, tempMin, tempMax, main } = weather;
+		const { temperature, humidity, precipitation, main } = weather;
 
 		return (
 			<div styleName='base'>
 				<div styleName='head'>
-					{main} <span styleName='temp'>{temp.toFixed(2)}℃</span>
+					{main} <span styleName='temp'>{temperature}℃</span>
 				</div>
-				<div styleName='temp-minmax'>
-					<span className='red'>{tempMax.toFixed(2)}℃</span>
-					/
-					<span className='blue'>{tempMin.toFixed(2)}℃</span>
-				</div>
-			</div>
+				<div styleName='others'>{humidity}%, {precipitation}mm/h</div>
+			</div >
 		);
 	}
 }
