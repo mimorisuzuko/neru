@@ -3,9 +3,18 @@ const request = require('request');
 const moment = require('moment');
 const libpath = require('path');
 const cors = require('cors');
+const Twitter = require('twitter');
+const config = require('config');
 const { JSDOM } = require('jsdom');
 
 const app = express();
+const twitter = new Twitter({
+	consumer_key: config.get('consumer_key'),
+	consumer_secret: config.get('consumer_secret'),
+	access_token_key: config.get('access_token_key'),
+	access_token_secret: config.get('access_token_secret')
+});
+const targetScreenName = config.get('screen_name');
 
 /**
  * @param {HTMLTableElement} $table
@@ -56,6 +65,17 @@ app.get('/weather', (req, res) => {
 			const $tables = document.querySelectorAll('.yjw_table2');
 
 			res.json([...convertTableToWeather($tables[0]), ...convertTableToWeather($tables[1], true)]);
+		}
+	});
+});
+
+app.post('/yo', (req, res) => {
+	twitter.post('direct_messages/new', { screen_name: targetScreenName, text: 'Yoされた' }, (err) => {
+		if (err) {
+			console.error(err);
+			res.sendStatus(500);
+		} else {
+			res.sendStatus(200);
 		}
 	});
 });

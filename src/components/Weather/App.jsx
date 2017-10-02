@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import Weather from './Weather';
 import Forecast from './Forecast';
 import autobind from 'autobind-decorator';
+import liburl from 'url';
+import apiTarget from '../api-target';
 import './App.scss';
 
-const { protocol, hostname } = location;
-const target = `${protocol}//${hostname}:8000/weather`;
+const target = liburl.resolve(apiTarget, 'weather');
 
 class App extends Component {
 	constructor() {
